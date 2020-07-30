@@ -16,8 +16,6 @@ notifications:
 
 deploy:
   provider: heroku
-  username: USERNAME
-  password: USERPASSWORD
+  api_key:
+    secure: 'cf511f11f76a3a28c067a8107e3bad50b261ad30'
   app: hacker-news-ssr2
-  on:
-    repo: devendra-gh/hacker-news-ssr
