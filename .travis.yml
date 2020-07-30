@@ -13,3 +13,11 @@ script:
 
 notifications:
   email: false
+
+deploy:
+  provider: heroku
+  username: devendramadheshiya@gmail.com
+  password: @Dev9015526295
+  app: hacker-news-ssr2
+  on:
+    repo: devendra-gh/hacker-news-ssr
