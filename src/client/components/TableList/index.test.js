@@ -16,7 +16,7 @@ describe('<TableList />', () => {
           title: 'Test',
           url: 'https://www.google.com/search?q=test',
           author: 'Test',
-          created_at: new Date('Wed Jul 30 2020 23:41:03 GMT+0400 (Gulf Standard Time)'),
+          created_at: new Date('Thu Jul 30 2020 23:41:03'),
         },
       ],
       isLoading: false,
