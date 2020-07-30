@@ -47,6 +47,10 @@ export default (req, store, context) => {
                             .catch((err) => console.log('Failure', err));
                         });
                       }
+                      
+                      if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
+                        window.__REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {};
+                      }
                   </script>
                   <script src="/bundle.js"></script>
                   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

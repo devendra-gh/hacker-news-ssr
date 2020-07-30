@@ -1,20 +1,28 @@
 {
   "name": "hacker-news-ssr",
   "version": "1.0.0",
-  "description": "Server side rendering project",
+  "description": "Server side rendering project with React JS",
+  "keywords": [
+    "SSR",
+    "React JS",
+    "Node JS"
+  ],
+  "homepage": "https://github.com/devendra-gh/hacker-news-ssr#readme",
+  "license": "N/A",
+  "author": "Devendra",
   "engines": {
     "node": "14.5.0"
   },
   "main": "index.js",
   "scripts": {
-    "start": "node build/bundle.js",
     "dev": "npm-run-all --parallel dev:*",
     "dev:build-client": "webpack --config webpack.client.js --watch",
     "dev:build-server": "webpack --config webpack.server.js --watch",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
+    "start": "node build/bundle.js",
     "build:prod": "rm -rf build && rm -rf public && webpack  --config webpack.server.js && webpack -p --config webpack.client.prod.js --mode production",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
-    "heroku-prebuild": "npm install && npm run build:prod"
+    "heroku-prebuild": "npm install && npm run build:prod",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
@@ -33,7 +41,6 @@
     "react-router-dom": "5.2.0",
     "react-time-ago": "^6.0.0",
     "redux": "4.0.5",
-    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "2.3.0",
     "serialize-javascript": "4.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
