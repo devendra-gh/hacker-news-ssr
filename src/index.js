@@ -13,6 +13,7 @@ function shouldCompress(req, res) {
   return compression.filter(req, res);
 }
 
+// test
 app.use(
   compression({
     level: 2, // set compression level from 1 to 9 (6 by default)
