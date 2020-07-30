@@ -23,6 +23,7 @@ export default (req, store, context) => {
                   ${helmet.meta.toString()}
                   ${helmet.link.toString()}
                   <meta charset="utf-8">
+                  <link href="./favicon.ico" rel="shortcut icon">
                   <link rel="icon" type="image/png" href="./logo.png" />
                   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                   <meta name="theme-color" content="#000000" />
