@@ -21,3 +21,4 @@ deploy:
   app: hacker-news-ssr2
   on:
     repo: devendra-gh/hacker-news-ssr
+    
