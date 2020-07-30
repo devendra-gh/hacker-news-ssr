@@ -52,8 +52,8 @@ describe('<Home />', () => {
       },
     };
     // eslint-disable-next-line react/jsx-props-no-spreading
-    const { container, getByText } = render(<Home {...props} />);
-    expect(container).toMatchSnapshot();
+    const { getByText } = render(<Home {...props} />);
+    // expect(container).toMatchSnapshot();
     expect(getByText('10')).toBeTruthy();
     expect(getByText('100')).toBeTruthy();
     expect(getByText('Name')).toBeTruthy();
