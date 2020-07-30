@@ -102,3 +102,17 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Added our unwanted files
+.vscode/
+node_modules/
+public/
+build
+bundle.js
+build/bundle.js
+.DS_Store
+*.tgz
+__snapshots__/
+yarn-debug.log*
+yarn-error.log*
+.npm/

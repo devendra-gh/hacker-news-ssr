@@ -1,0 +1,15 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - node
+
+install:
+  - yarn
+
+script:
+  - yarn test
+
+notifications:
+  email: false
