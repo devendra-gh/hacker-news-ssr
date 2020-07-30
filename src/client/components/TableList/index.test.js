@@ -14,7 +14,7 @@ describe('<TableList />', () => {
           num_comments: 10,
           points: 100,
           title: 'Test',
-          url: 'https://www.google.com/search?q=test',
+          url: 'https://www.google.com/search?q=tests',
           author: 'Test',
           created_at: new Date('Thu Jul 30 2020 23:41:03'),
         },

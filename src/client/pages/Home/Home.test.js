@@ -42,7 +42,7 @@ describe('<Home />', () => {
             title: 'Name',
             url: 'google.com',
             author: 'Author',
-            created_at: new Date('Thu Jul 30 2020 23:41:03'),
+            created_at: new Date('Thu Jul 20 2020 23:41:03'),
           },
         ],
         lineChart: [
