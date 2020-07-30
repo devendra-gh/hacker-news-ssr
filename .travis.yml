@@ -16,8 +16,8 @@ notifications:
 
 deploy:
   provider: heroku:git
-  username: devendramadheshiya@gmail.com
-  password: @Dev9015526295
+  username: 'devendramadheshiya@gmail.com'
+  password: '@Dev9015526295'
   app: hacker-news-ssr2
   on:
     repo: devendra-gh/hacker-news-ssr
