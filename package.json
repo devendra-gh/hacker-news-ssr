@@ -14,7 +14,7 @@
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "build:prod": "rm -rf build && rm -rf public && webpack  --config webpack.server.js && webpack -p --config webpack.client.prod.js --mode production",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
-    "heroku-postbuild": "npm install && npm run build:prod"
+    "heroku-prebuild": "npm install && npm run build:prod"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",

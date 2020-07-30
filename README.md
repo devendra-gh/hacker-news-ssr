@@ -70,4 +70,7 @@ You can deploy this project to:
 "dev:build-server": "webpack --config webpack.server.js --watch",
 "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
 "build:prod": "rm -rf build && rm -rf public && webpack  --config webpack.server.js && webpack -p --config webpack.client.prod.js --mode production",
-"test": "react-scripts test --env=jest-environment-jsdom-sixteen"
+"test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+"heroku-prebuild": "echo This runs before Heroku installs dependencies.",
+  "heroku-postbuild": "echo This runs after Heroku installs dependencies, but before Heroku prunes and caches dependencies.",
+  "heroku-cleanup": "echo This runs after Heroku prunes and caches dependencies."
