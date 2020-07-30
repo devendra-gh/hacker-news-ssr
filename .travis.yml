@@ -16,7 +16,8 @@ notifications:
 
 deploy:
   provider: heroku
-  api_key: HEROKU_KEY
+  api_key:
+    secure: HEROKU_KEY
   app: hacker-news-ssr2
   on:
     repo: devendra-gh/hacker-news-ssr
