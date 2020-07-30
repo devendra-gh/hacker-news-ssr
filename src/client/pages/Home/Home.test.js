@@ -40,7 +40,7 @@ describe('<Home />', () => {
             num_comments: 10,
             points: 100,
             title: 'Name',
-            url: 'https://www.google.com/search?q=test',
+            url: 'google.com',
             author: 'Author',
             created_at: new Date('Wed Jul 30 2020 23:41:03 GMT+0400 (Gulf Standard Time)'),
           },
@@ -57,7 +57,7 @@ describe('<Home />', () => {
     expect(getByText('10')).toBeTruthy();
     expect(getByText('100')).toBeTruthy();
     expect(getByText('Name')).toBeTruthy();
-    expect(getByText('(google.com)')).toBeTruthy();
+    expect(getByText('google.com')).toBeTruthy();
     expect(getByText('Author')).toBeTruthy();
     expect(getByText('hide')).toBeTruthy();
   });

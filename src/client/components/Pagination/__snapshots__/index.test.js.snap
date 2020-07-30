@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination /> Renders <Pagination /> component correctly 1`] = `
+<div>
+  <div
+    class="carousel-container"
+    style="padding-top: 20px; text-align: right;"
+  >
+    <button
+      aria-label="Previous Button"
+      class="btn red darken-4"
+      disabled=""
+      name="prev"
+      role="navigation"
+      style="margin-right: 10px;"
+      type="button"
+    >
+      Previous
+    </button>
+    <button
+      aria-label="Next Button"
+      class="btn red darken-4"
+      name="next"
+      role="navigation"
+      type="button"
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;

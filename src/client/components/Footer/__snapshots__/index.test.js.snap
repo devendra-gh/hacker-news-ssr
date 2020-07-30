@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> Renders <Footer /> component correctly 1`] = `
+<div>
+  <footer
+    aria-label="Hacker News copyright"
+    class="page-footer red"
+    role="navigation"
+  >
+    <div
+      class="footer-copyright"
+    >
+      <div
+        class="container"
+      >
+        © 2020 SSR Hacker News
+      </div>
+    </div>
+  </footer>
+</div>
+`;
