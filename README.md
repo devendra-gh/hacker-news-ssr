@@ -52,7 +52,7 @@ $ yarn run build:prod
 You can deploy this project to [Heroku](https://www.heroku.com/):
 
 ```sh
-$ yarn run heroku-prebuild
+$ yarn run heroku-postbuild
 ```
 
 ## Testing Unite test cases

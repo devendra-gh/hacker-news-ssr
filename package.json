@@ -21,7 +21,7 @@
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "start": "node build/bundle.js",
     "build:prod": "rm -rf build && rm -rf public && webpack  --config webpack.server.js && webpack -p --config webpack.client.prod.js --mode production",
-    "heroku-prebuild": "npm install && npm run build:prod",
+    "heroku-postbuild": "npm install && npm run build:prod",
     "heroku-cleanup": "echo This runs after Heroku prunes and caches dependencies.",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen"
   },
