@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import Head from '../../components/Head';
-import { setUserData } from '../../utils';
+import { setUserData, getUserData } from '../../utils';
 import TableList from '../../components/TableList';
 import LineChart from '../../components/LineChart';
 import Pagination from '../../components/Pagination';
@@ -22,7 +22,7 @@ const Home = (props) => {
     if (pageID < 0) {
       setPage404(true);
     } else if (pageID !== pageNumber) {
-      fetchHackerNews(pageID);
+      fetchHackerNews({ pageNumber: pageID, userData: getUserData() });
     }
   }, [fetchHackerNews, pageID, pageNumber]);
 

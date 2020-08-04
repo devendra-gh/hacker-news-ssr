@@ -3,12 +3,30 @@ import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Home from './Home';
 
+jest.mock('react-router-dom', () => {
+  const originalModule = jest.requireActual('react-router-dom');
+
+  return {
+    __esModule: true,
+    ...originalModule,
+    useParams: jest.fn(() => ({
+      id: '1',
+    })),
+    useHistory: jest.fn(),
+    Link: 'Link',
+    Route: ({ children, path }) => children({ match: path === '/somewhere' }),
+  };
+});
+
 describe('<Home />', () => {
   let props;
 
   beforeEach(() => {
     window.scrollTo = jest.fn();
     props = {
+      match: {
+        params: '2',
+      },
       home: {
         newsList: [],
         lineChart: [],
@@ -57,7 +75,7 @@ describe('<Home />', () => {
     expect(getByText('10')).toBeTruthy();
     expect(getByText('100')).toBeTruthy();
     expect(getByText('Name')).toBeTruthy();
-    expect(getByText('google.com')).toBeTruthy();
+    expect(getByText('(google.com)')).toBeTruthy();
     expect(getByText('Author')).toBeTruthy();
     expect(getByText('hide')).toBeTruthy();
   });

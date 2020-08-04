@@ -3,7 +3,7 @@ import { baseAction, fetchHackerNews, updateUserData } from '../../actions';
 import Home from './Home';
 
 const loadData = (store, id) => {
-  return store.dispatch(fetchHackerNews(id));
+  return store.dispatch(fetchHackerNews({ pageNumber: id }));
 };
 
 const mapStateToProps = (state) => {

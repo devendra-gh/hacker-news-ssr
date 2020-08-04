@@ -1,12 +1,6 @@
 import axios from 'axios';
 import { types, API_URL } from '../constant';
-import {
-  getDomain,
-  getUserData,
-  getFilterNewsList,
-  getLineChartData,
-  getUpdatedUpVoteList,
-} from '../utils';
+import { getDomain, getFilterNewsList, getLineChartData, getUpdatedUpVoteList } from '../utils';
 
 export const baseAction = (action, payload = {}) => ({
   type: action,
@@ -60,7 +54,9 @@ const getFormattedObjectList = (newsList) => {
   );
 };
 
-export const fetchHackerNews = (pageNumber = 0, hitsPerPage = 5) => async (dispatch) => {
+export const fetchHackerNews = ({ pageNumber = 0, hitsPerPage = 5, userData = {} }) => async (
+  dispatch
+) => {
   const url = `${API_URL.HN_ALGOLIA}?page=${pageNumber}&hitsPerPage=${hitsPerPage}`;
 
   dispatch(baseAction(types.IS_LOADING, true));
@@ -74,7 +70,6 @@ export const fetchHackerNews = (pageNumber = 0, hitsPerPage = 5) => async (dispa
 
       const { hits = [], page = 0 } = response.data;
       const newsList = getFormattedObjectList(hits);
-      const userData = getUserData();
 
       const payloadData = { newsList, userData };
       const payload = {
