@@ -21,7 +21,8 @@ const Home = (props) => {
     window.scrollTo(0, 0);
     if (pageID < 0) {
       setPage404(true);
-    } else if (pageID !== pageNumber) {
+    } else {
+      // if (pageID !== pageNumber) {
       fetchHackerNews({ pageNumber: pageID, userData: getUserData() });
     }
   }, [fetchHackerNews, pageID, pageNumber]);

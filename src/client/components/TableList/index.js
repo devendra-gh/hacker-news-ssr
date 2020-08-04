@@ -130,15 +130,7 @@ TableList.propTypes = {
 };
 
 TableList.defaultProps = {
-  newsList: {
-    objectID: '',
-    num_comments: 0,
-    points: 0,
-    title: '',
-    url: '',
-    author: '',
-    created_at: '',
-  },
+  newsList: [],
   isLoading: false,
   onClickNewsList: null,
 };

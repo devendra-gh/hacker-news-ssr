@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { types, API_URL } from '../constant';
+import { types, API_URL, constant } from '../constant';
 import { getDomain, getFilterNewsList, getLineChartData, getUpdatedUpVoteList } from '../utils';
 
 export const baseAction = (action, payload = {}) => ({
@@ -54,9 +54,8 @@ const getFormattedObjectList = (newsList) => {
   );
 };
 
-export const fetchHackerNews = ({ pageNumber = 0, hitsPerPage = 5, userData = {} }) => async (
-  dispatch
-) => {
+export const fetchHackerNews = ({ pageNumber = 0, userData = {} }) => async (dispatch) => {
+  const hitsPerPage = constant.MAX_PAGE_SIZE;
   const url = `${API_URL.HN_ALGOLIA}?page=${pageNumber}&hitsPerPage=${hitsPerPage}`;
 
   dispatch(baseAction(types.IS_LOADING, true));

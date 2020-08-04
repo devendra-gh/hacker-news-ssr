@@ -6,26 +6,28 @@ exports[`<Pagination /> Renders <Pagination /> component correctly 1`] = `
     class="carousel-container"
     style="padding-top: 20px; text-align: right;"
   >
-    <button
+    <link
       aria-label="Previous Button"
       class="btn red darken-4"
       disabled=""
       name="prev"
       role="navigation"
       style="margin-right: 10px;"
+      to="/page/-1"
       type="button"
     >
       Previous
-    </button>
-    <button
+    </link>
+    <link
       aria-label="Next Button"
       class="btn red darken-4"
       name="next"
       role="navigation"
+      to="/page/1"
       type="button"
     >
       Next
-    </button>
+    </link>
   </div>
 </div>
 `;

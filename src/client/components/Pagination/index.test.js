@@ -3,6 +3,21 @@ import { render, cleanup, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Pagination from './index';
 
+jest.mock('react-router-dom', () => {
+  const originalModule = jest.requireActual('react-router-dom');
+
+  return {
+    __esModule: true,
+    ...originalModule,
+    useParams: jest.fn(() => ({
+      id: '1',
+    })),
+    useHistory: jest.fn(),
+    Link: 'Link',
+    Route: ({ children, path }) => children({ match: path === '/somewhere' }),
+  };
+});
+
 describe('<Pagination />', () => {
   let props;
 

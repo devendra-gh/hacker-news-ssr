@@ -8,6 +8,7 @@ export const types = {
 export const constant = {
   NEXT: 'next',
   PREV: 'prev',
+  MAX_PAGE_SIZE: 10,
 };
 
 export const API_URL = {
