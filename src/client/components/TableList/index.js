@@ -49,7 +49,7 @@ const TableList = (props) => {
                 </td>
                 <td>
                   <h6>{`${news.title}`}</h6>
-                  <small>{` ${news.url} `}</small>
+                  <small>{`(${news.url}) `}</small>
                   <small>by</small>
                   <strong>{` ${news.author} `}</strong>
                   <small>

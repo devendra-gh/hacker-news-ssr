@@ -23,13 +23,13 @@ export default (req, store, context) => {
                   ${helmet.meta.toString()}
                   ${helmet.link.toString()}
                   <meta charset="utf-8">
-                  <link rel="icon" type="image/png" href="./logo.png" />
-                  <link href="./favicon.ico" rel="shortcut icon">
                   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                   <meta name="theme-color" content="#000000" />
                   <meta name="description" content="Modern PWA Hacker News React Application" />
-                  <link rel="apple-touch-icon" href="./logo.png" />
-                  <link rel="manifest" href="./manifest.json" />
+                  <link href="/favicon.ico" rel="shortcut icon">
+                  <link rel="icon" type="image/png" href="/logo.png" />
+                  <link rel="apple-touch-icon" href="/logo.png" />
+                  <link rel="manifest" href="/manifest.json" />
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
               </head>
               <body>

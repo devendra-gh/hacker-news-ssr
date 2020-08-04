@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import Head from '../../components/Head';
-import { constant } from '../../constant';
 import { setUserData } from '../../utils';
 import TableList from '../../components/TableList';
 import LineChart from '../../components/LineChart';
@@ -9,15 +9,22 @@ import Pagination from '../../components/Pagination';
 
 const Home = (props) => {
   const {
-    fetchHackerNews: loadHackerNews,
+    fetchHackerNews,
     updateUserData,
     home: { newsList, lineChart, pageNumber, isLoading },
   } = props;
 
+  const pageID = parseInt(useParams().id || 0, 10);
+  const [page404, setPage404] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    loadHackerNews();
-  }, [loadHackerNews]);
+    if (pageID < 0) {
+      setPage404(true);
+    } else if (pageID !== pageNumber) {
+      fetchHackerNews(pageID);
+    }
+  }, [fetchHackerNews, pageID, pageNumber]);
 
   const onClickNewsList = ({ objectID, hide, points }) => {
     const newUserData = {
@@ -31,31 +38,24 @@ const Home = (props) => {
     updateUserData({ newsList, newUserData, hide, objectID, points });
   };
 
-  const onClickPrevNext = (e) => {
-    const { name } = e.target;
-    let currentPageNumber = pageNumber;
-
-    if (name === constant.NEXT) {
-      currentPageNumber += 1;
-    } else {
-      currentPageNumber -= 1;
-    }
-
-    loadHackerNews(currentPageNumber);
-  };
-
   return (
     <div role="main" aria-label="Home Page">
       <Head />
       <div className="row">
         <div className="section">
-          <TableList isLoading={isLoading} newsList={newsList} onClickNewsList={onClickNewsList} />
-          <Pagination
-            pageNumber={pageNumber}
-            isLoading={isLoading}
-            onClickPrevNext={onClickPrevNext}
-          />
-          {lineChart && lineChart.length ? <LineChart data={lineChart} /> : ''}
+          {page404 ? (
+            <h4>Invalid Page Number</h4>
+          ) : (
+            <>
+              <TableList
+                isLoading={isLoading}
+                newsList={newsList}
+                onClickNewsList={onClickNewsList}
+              />
+              <Pagination pageNumber={pageNumber} isLoading={isLoading} />
+              {lineChart && lineChart.length ? <LineChart data={lineChart} /> : ''}
+            </>
+          )}
         </div>
       </div>
     </div>

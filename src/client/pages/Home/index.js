@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { baseAction, fetchHackerNews, updateUserData } from '../../actions';
 import Home from './Home';
 
-const loadData = (store) => {
-  return store.dispatch(fetchHackerNews());
+const loadData = (store, id) => {
+  return store.dispatch(fetchHackerNews(id));
 };
 
 const mapStateToProps = (state) => {

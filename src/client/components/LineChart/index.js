@@ -26,7 +26,7 @@ const LineChart = (props) => {
     <div role="form" aria-label="Line Chart">
       <Chart
         width="100%"
-        height="400px"
+        height="500px"
         chartType="LineChart"
         loader={loaderNode}
         data={lineChart}

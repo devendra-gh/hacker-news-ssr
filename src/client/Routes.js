@@ -12,6 +12,11 @@ export default [
         exact: true,
       },
       {
+        ...Home,
+        path: '/page/:id',
+        exact: true,
+      },
+      {
         ...NotFound,
       },
     ],

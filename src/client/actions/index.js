@@ -54,7 +54,7 @@ const getFormattedObjectList = (newsList) => {
         title: news.title || 'N/A',
         url: getDomain(news.url) || 'N/A',
         author: news.author || 'N/A',
-        created_at: news.created_at || 'N/A',
+        created_at: new Date(news.created_at) || 'N/A',
       };
     })
   );
