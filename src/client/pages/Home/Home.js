@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import Head from '../../components/Head';
 import { setUserData, getUserData } from '../../utils';
+import Head from '../../components/Head';
+import LoaderOverlay from '../../components/LoaderOverlay';
+import InvalidPage from '../../components/InvalidPage';
 import TableList from '../../components/TableList';
 import LineChart from '../../components/LineChart';
 import Pagination from '../../components/Pagination';
@@ -19,10 +21,9 @@ const Home = (props) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (pageID < 0) {
+    if (pageID < 0 || isNaN(pageID)) {
       setPage404(true);
-    } else {
-      // if (pageID !== pageNumber) {
+    } else if (pageID !== pageNumber) {
       fetchHackerNews({ pageNumber: pageID, userData: getUserData() });
     }
   }, [fetchHackerNews, pageID, pageNumber]);
@@ -39,13 +40,17 @@ const Home = (props) => {
     updateUserData({ newsList, newUserData, hide, objectID, points });
   };
 
+  if (page404) {
+    return <InvalidPage />;
+  }
+
   return (
     <div role="main" aria-label="Home Page">
       <Head />
       <div className="row">
         <div className="section">
-          {page404 ? (
-            <h4>Invalid Page Number</h4>
+          {isLoading ? (
+            <LoaderOverlay />
           ) : (
             <>
               <TableList

@@ -1,3 +1,51 @@
+import Cookies from 'universal-cookie';
+
+export const getUserData = () => {
+  const cookies = new Cookies();
+  let userData;
+
+  userData = cookies.get('userData');
+  userData = userData || {};
+
+  return userData;
+};
+
+export const setUserData = (newUserData) => {
+  const cookies = new Cookies();
+  const allUserData = getUserData();
+
+  const userData = {
+    ...allUserData,
+    ...newUserData,
+  };
+
+  cookies.set('userData', JSON.stringify(userData), { path: '/' });
+};
+
+// export const getUserData = () => {
+//   let userData = {};
+
+//   if (typeof window !== 'undefined') {
+//     if (localStorage.getItem('userData') !== null) {
+//       userData = JSON.parse(localStorage.userData);
+//     }
+//   }
+
+//   return userData;
+// };
+
+// export const setUserData = (newUserData) => {
+//   if (typeof window !== 'undefined') {
+//     const allUserData = getUserData();
+//     const userData = {
+//       ...allUserData,
+//       ...newUserData,
+//     };
+
+//     localStorage.setItem('userData', JSON.stringify(userData));
+//   }
+// };
+
 export const getDomain = (url) => {
   // eslint-disable-next-line no-param-reassign
   url = url ? url.replace(/(https?:\/\/)?(www.)?/i, '') : url;
@@ -7,30 +55,6 @@ export const getDomain = (url) => {
   }
 
   return url;
-};
-
-export const getUserData = () => {
-  let userData = {};
-
-  if (typeof window !== 'undefined') {
-    if (localStorage.getItem('userData') !== null) {
-      userData = JSON.parse(localStorage.userData);
-    }
-  }
-
-  return userData;
-};
-
-export const setUserData = (newUserData) => {
-  if (typeof window !== 'undefined') {
-    const allUserData = getUserData();
-    const userData = {
-      ...allUserData,
-      ...newUserData,
-    };
-
-    localStorage.setItem('userData', JSON.stringify(userData));
-  }
 };
 
 export const getFilterNewsList = ({ newsList, userData }) => {

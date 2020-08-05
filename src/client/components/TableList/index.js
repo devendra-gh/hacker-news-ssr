@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ReactTimeAgo from 'react-time-ago';
 import JavascriptTimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
-import { upvote, tableLoader } from '../../utils/style';
+import { upvote } from '../../utils/style';
 
 JavascriptTimeAgo.addLocale(en);
 
@@ -85,27 +85,7 @@ const TableList = (props) => {
           })
         ) : (
           <tr>
-            <td colSpan="5">
-              {isLoading ? (
-                <div style={tableLoader}>
-                  <div className="preloader-wrapper active">
-                    <div className="spinner-layer spinner-red-only">
-                      <div className="circle-clipper left">
-                        <div className="circle" />
-                      </div>
-                      <div className="gap-patch">
-                        <div className="circle" />
-                      </div>
-                      <div className="circle-clipper right">
-                        <div className="circle" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div>No Data Found</div>
-              )}
-            </td>
+            <td colSpan="5">No Data Found</td>
           </tr>
         )}
       </tbody>

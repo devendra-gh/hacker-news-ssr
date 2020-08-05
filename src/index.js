@@ -1,5 +1,6 @@
 import '@babel/polyfill';
 import express from 'express';
+import Cookies from 'universal-cookie';
 import { matchRoutes } from 'react-router-config';
 import compression from 'compression';
 import createStore from './client/store/createStore';
@@ -30,6 +31,10 @@ app.use(express.static('assets'));
 app.get('*', (req, res) => {
   const params = req.params[0].split('/');
   const id = params[2];
+
+  const clientCookis = new Cookies(req.headers.cookie);
+  const userData = clientCookis.cookies.userData ? JSON.parse(clientCookis.cookies.userData) : {};
+
   // We create store before rendering html
   const store = createStore();
   // We pass store to renderer
@@ -41,7 +46,7 @@ app.get('*', (req, res) => {
   // Even if we get an error while loading data, we will still attempt to render page.
   const promises = routes
     .map(({ route }) => {
-      return route.loadData ? route.loadData(store, id) : null;
+      return route.loadData ? route.loadData({ store, pageNumber: id, userData }) : null;
     })
     .map((promise) => {
       if (promise) {

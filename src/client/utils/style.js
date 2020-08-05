@@ -12,10 +12,22 @@ export const upvote = (isLoading) => {
 };
 
 export const tableLoader = {
-  display: 'block',
-  minWidth: '200px',
+  width: '50px',
+  height: '50px',
+  margin: 'auto',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  position: 'absolute',
+};
+
+export const loaderOverlay = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  zIndex: '9',
   width: '100%',
-  height: '300px',
-  lineHeight: '300px',
-  textAlign: 'center',
+  height: '100%',
+  backgroundColor: 'rgba(255, 255, 255, 1)',
 };
