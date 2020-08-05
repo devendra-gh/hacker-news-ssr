@@ -41,9 +41,7 @@ exports[`<Home /> Renders <Home /> component correctly 1`] = `
               <td
                 colspan="5"
               >
-                <div>
-                  No Data Found
-                </div>
+                No Data Found
               </td>
             </tr>
           </tbody>
